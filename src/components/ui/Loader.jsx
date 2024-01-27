@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Loader = () => {
   return (
     <svg
@@ -15,8 +13,8 @@ export const Loader = () => {
           cy="12"
           r="9.5"
           fill="none"
-          stroke-width="3"
-          stroke-linecap="round"
+          strokeWidth="3"
+          strokeLinecap="round"
         >
           <animate
             attributeName="stroke-dasharray"
