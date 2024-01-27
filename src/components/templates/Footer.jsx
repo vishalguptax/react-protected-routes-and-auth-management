@@ -18,7 +18,7 @@ const Footer = () => {
         </a>{" "}
         |{" "}
         <a
-          href="https://github.com/vishalguptax/react-protected-routes-and-handling-authentication"
+          href="https://github.com/vishalguptax/react-protected-routes-and-auth-management"
           target="_blank"
           rel="noreferrer"
         >
