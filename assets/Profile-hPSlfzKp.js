@@ -1,0 +1,1 @@
+import{u as e,j as r}from"./index-Woz7ljHX.js";const n=()=>{const{authData:s}=e();return r.jsxs("div",{children:[r.jsx("h1",{children:"Profile"}),r.jsx("hr",{}),r.jsx("br",{}),r.jsx("h3",{children:s==null?void 0:s.name}),r.jsx("h3",{children:s==null?void 0:s.email})]})};export{n as default};
