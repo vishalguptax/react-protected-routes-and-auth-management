@@ -1,0 +1,1 @@
+import{u as o,j as t}from"./index-64skWIgC.js";const m=()=>{var e;const{authData:s}=o();return t.jsxs("h1",{children:["Welcome ",(e=s==null?void 0:s.name)==null?void 0:e.split(" ")[0]]})};export{m as default};
