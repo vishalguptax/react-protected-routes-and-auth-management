@@ -32,3 +32,5 @@ Make sure you have Node.js and npm installed on your machine.
 
    ```bash
    npm run dev
+
+[![Edit React Protected Routes and Auth Management (forked)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/react-protected-routes-and-auth-management-forked-t4yjc5?embed=1&file=%2Fsrc%2Fapp.js)
