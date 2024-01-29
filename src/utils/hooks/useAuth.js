@@ -10,16 +10,16 @@ const useAuth = () => {
 
   const loginUser = (data) => {
     setAuthData({ ...data, isAuthenticated: true });
-    const redirectUrl = state?.from ? state.from : "/";
+    const redirectUrl = state?.from || "/";
     navigate(redirectUrl);
   };
 
   const logoutUser = () => {
     setAuthData({ isAuthenticated: false });
-    navigate("/login");
-    setTimeout(() => {
+    Promise.resolve().then(() => {
       localStorage.removeItem("authData");
-    }, 1);
+    });
+    navigate("/login");
   };
 
   return { authData, isAuthenticated, loginUser, logoutUser };

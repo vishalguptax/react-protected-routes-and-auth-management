@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import PropTypes from "prop-types";
+import { decryptData, encryptData } from "../utils/encryption";
 
 const AuthContext = createContext({
   authData: {
@@ -9,21 +10,40 @@ const AuthContext = createContext({
 });
 
 export const AuthContextProvider = ({ children }) => {
-  const [authData, setAuthData] = useState(() => {
+  const [authData, setAuthValue] = useState(() => {
+    if (typeof window === "undefined") {
+      return {
+        isAuthenticated: false,
+      };
+    }
     try {
-      return JSON.parse(localStorage.getItem("authData"));
+      const encryptedData = localStorage.getItem("authData");
+      if (encryptedData) {
+        const decryptedData = decryptData(encryptedData);
+        return JSON.parse(decryptedData);
+      }
+      return {
+        isAuthenticated: false,
+      };
     } catch (error) {
+      console.log(error);
       return {
         isAuthenticated: false,
       };
     }
   });
 
-  useEffect(() => {
-    if (authData) {
-      localStorage.setItem("authData", JSON.stringify(authData));
+  const setAuthData = (data) => {
+    try {
+      setAuthValue(data);
+      if (typeof window !== "undefined") {
+        const encryptedData = encryptData(JSON.stringify(data));
+        localStorage.setItem("authData", encryptedData);
+      }
+    } catch (error) {
+      console.error("Error setting authData:", error);
     }
-  }, [authData]);
+  };
 
   return (
     <AuthContext.Provider value={{ authData, setAuthData }}>

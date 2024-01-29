@@ -25,7 +25,7 @@ const Login = () => {
     setTimeout(() => {
       setIsLoading(false);
       loginUser(userData);
-    }, 3000);
+    }, 2000);
   };
 
   return (
